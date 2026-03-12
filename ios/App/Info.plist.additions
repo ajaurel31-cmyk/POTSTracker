@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Add these keys to your Info.plist in Xcode.
+  These are the required privacy descriptions for App Store submission.
+-->
+<dict>
+  <!-- Face ID / Biometric Auth -->
+  <key>NSFaceIDUsageDescription</key>
+  <string>Used to protect your private health data</string>
+
+  <!-- HealthKit Read -->
+  <key>NSHealthShareUsageDescription</key>
+  <string>Used to read heart rate data from Apple Health</string>
+
+  <!-- HealthKit Write -->
+  <key>NSHealthUpdateUsageDescription</key>
+  <string>Used to write symptom data to Apple Health</string>
+
+  <!-- HealthKit Entitlement -->
+  <key>UIBackgroundModes</key>
+  <array>
+    <string>processing</string>
+  </array>
+
+  <!-- App Category -->
+  <key>LSApplicationCategoryType</key>
+  <string>public.app-category.medical</string>
+
+  <!-- Minimum iOS Version -->
+  <key>MinimumOSVersion</key>
+  <string>16.0</string>
+</dict>

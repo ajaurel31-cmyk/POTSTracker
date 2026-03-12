@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>POTSTracker reads your heart rate, blood pressure, steps, and sleep data from Apple Health to automatically track your vitals without manual entry.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>POTSTracker may save symptom-related data to Apple Health for a unified health record.</string>
+</dict>
+</plist>

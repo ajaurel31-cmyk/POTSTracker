@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 13 115 119;
+    --color-accent: 244 132 95;
+    --color-success: 46 204 113;
+    --color-warning: 243 156 18;
+    --color-danger: 231 76 60;
+    --color-bg: 248 250 251;
+    --color-card: 255 255 255;
+    --color-text: 15 25 35;
+    --color-text-secondary: 107 114 128;
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-left: env(safe-area-inset-left, 0px);
+    --safe-area-right: env(safe-area-inset-right, 0px);
+  }
+
+  .dark {
+    --color-bg: 15 25 35;
+    --color-card: 28 37 51;
+    --color-text: 248 250 251;
+    --color-text-secondary: 156 163 175;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+      system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-top: var(--safe-area-top);
+    padding-bottom: var(--safe-area-bottom);
+    padding-left: var(--safe-area-left);
+    padding-right: var(--safe-area-right);
+  }
+
+  /* Support Dynamic Type */
+  @supports (font: -apple-system-body) {
+    body {
+      font: -apple-system-body;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-card-light dark:bg-card-dark rounded-card shadow-sm dark:shadow-none
+           border border-gray-100 dark:border-gray-800;
+  }
+
+  .card-header {
+    @apply flex items-center justify-between p-4 pb-2;
+  }
+
+  .card-body {
+    @apply p-4 pt-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white font-semibold py-3 px-6 rounded-xl
+           min-h-tap min-w-tap flex items-center justify-center
+           active:bg-primary-700 transition-colors duration-150;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100
+           font-semibold py-3 px-6 rounded-xl
+           min-h-tap min-w-tap flex items-center justify-center
+           active:bg-gray-200 dark:active:bg-gray-700 transition-colors duration-150;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-white font-semibold py-3 px-6 rounded-xl
+           min-h-tap min-w-tap flex items-center justify-center
+           active:bg-red-700 transition-colors duration-150;
+  }
+
+  .input-field {
+    @apply w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700
+           rounded-xl px-4 py-3 text-dynamic-base min-h-tap
+           focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
+           placeholder-gray-400 dark:placeholder-gray-500
+           text-gray-900 dark:text-gray-100;
+  }
+
+  .section-title {
+    @apply text-dynamic-lg font-bold text-gray-900 dark:text-gray-100;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-dynamic-xs
+           font-medium bg-warning/20 text-yellow-800 dark:text-yellow-200;
+  }
+
+  .badge-danger {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-dynamic-xs
+           font-medium bg-danger/20 text-red-800 dark:text-red-200;
+  }
+
+  .badge-success {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-dynamic-xs
+           font-medium bg-success/20 text-green-800 dark:text-green-200;
+  }
+
+  .tab-bar {
+    @apply fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900
+           border-t border-gray-200 dark:border-gray-800
+           flex items-center justify-around
+           pb-[var(--safe-area-bottom)] z-50;
+  }
+
+  .tab-item {
+    @apply flex flex-col items-center justify-center py-2 px-3
+           min-h-tap min-w-tap text-gray-500 dark:text-gray-400
+           transition-colors duration-150;
+  }
+
+  .tab-item-active {
+    @apply text-primary dark:text-primary-300;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded-lg;
+  }
+
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-12 px-6 text-center;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tap-highlight-none {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Success animation */
+@keyframes checkmark {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-checkmark {
+  animation: checkmark 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out forwards;
+}
