@@ -268,12 +268,12 @@ final class DatabaseManager {
 
         for log in logs {
             let date = dateFormatter.string(from: log.date)
-            let lyingHR = log.lyingHR.map(String.init) ?? ""
-            let sittingHR = log.sittingHR.map(String.init) ?? ""
-            let standingHR = log.standingHR.map(String.init) ?? ""
-            let hrIncrease = log.orthostaticHRIncrease.map(String.init) ?? ""
-            let lyingBP = [log.lyingSystolic, log.lyingDiastolic].compactMap { $0.map(String.init) }.joined(separator: "/")
-            let standingBP = [log.standingSystolic, log.standingDiastolic].compactMap { $0.map(String.init) }.joined(separator: "/")
+            let lyingHR = log.lyingHR.map { "\($0)" } ?? ""
+            let sittingHR = log.sittingHR.map { "\($0)" } ?? ""
+            let standingHR = log.standingHR.map { "\($0)" } ?? ""
+            let hrIncrease = log.orthostaticHRIncrease.map { "\($0)" } ?? ""
+            let lyingBP = [log.lyingSystolic, log.lyingDiastolic].compactMap { $0.map { "\($0)" } }.joined(separator: "/")
+            let standingBP = [log.standingSystolic, log.standingDiastolic].compactMap { $0.map { "\($0)" } }.joined(separator: "/")
             let symptoms = log.symptoms.map { "\($0.name)(\($0.severity))" }.joined(separator: "; ")
             let symptomCount = String(log.symptoms.count)
             let water = log.waterIntake.map(String.init) ?? ""
