@@ -173,7 +173,7 @@ struct LogDetailView: View {
             }
             .padding()
         }
-        .navigationTitle(log.date, format: .dateTime.month().day().year())
+        .navigationTitle(log.date.formatted(.dateTime.month().day().year()))
         .navigationBarTitleDisplayMode(.inline)
     }
 

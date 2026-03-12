@@ -46,7 +46,7 @@ struct HistoryView: View {
             }
             .navigationTitle("History")
             .onAppear { loadLogs() }
-            .onChange(of: selectedRange) { _ in loadLogs() }
+            .onChange(of: selectedRange) { loadLogs() }
         }
     }
 
