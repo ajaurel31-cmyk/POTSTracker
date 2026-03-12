@@ -276,7 +276,7 @@ final class DatabaseManager {
             let standingBP = [log.standingSystolic, log.standingDiastolic].compactMap { $0.map { "\($0)" } }.joined(separator: "/")
             let symptoms = log.symptoms.map { "\($0.name)(\($0.severity))" }.joined(separator: "; ")
             let symptomCount = String(log.symptoms.count)
-            let water = log.waterIntake.map(String.init) ?? ""
+            let water = log.waterIntake.map { "\($0)" } ?? ""
             let electrolytes = log.electrolyteDrinks ? "Yes" : "No"
             let activity = log.activityLevel?.rawValue ?? ""
             let upright = String(format: "%.1f", log.timeUprightHours)
